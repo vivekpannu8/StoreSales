@@ -1,0 +1,12 @@
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\bin\Debug\net6.0\CalculatorLibrary.deps.json
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\bin\Debug\net6.0\CalculatorLibrary.dll
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\bin\Debug\net6.0\CalculatorLibrary.pdb
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.csproj.AssemblyReference.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.AssemblyInfoInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.AssemblyInfo.cs
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.csproj.CoreCompileInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.dll
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\refint\CalculatorLibrary.dll
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.pdb
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\ref\CalculatorLibrary.dll
