@@ -16,6 +16,10 @@
         }
         public static decimal divideNumbers(decimal number1, decimal number2)
         {
+            if(number2 == 0)
+            {
+                throw new DivideByZeroException("Cannot divide by zero");
+            } 
             return number1 / number2;
         }
     }
