@@ -2,19 +2,19 @@
 {
     public class CalculatorOperations
     {
-        public static decimal addNumbers (decimal number1, decimal number2)
+        public static decimal AddNumbers (decimal number1, decimal number2)
         {
             return number1 + number2;
         }
-        public static decimal subtractNumbers(decimal number1, decimal number2)
+        public static decimal SubtractNumbers(decimal number1, decimal number2)
         {
             return number1 - number2;
         }
-        public static decimal multiplyNumbers(decimal number1, decimal number2)
+        public static decimal MultiplyNumbers(decimal number1, decimal number2)
         {
             return number1 * number2;
         }
-        public static decimal divideNumbers(decimal number1, decimal number2)
+        public static decimal DivideNumbers(decimal number1, decimal number2)
         {
             if(number2 == 0)
             {

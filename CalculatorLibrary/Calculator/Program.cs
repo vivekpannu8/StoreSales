@@ -2,34 +2,33 @@
 
 class ConsoleCalculator
 {
-   static void Main()
+    static void Main()
     {
-        const string addMessage = "Addition is : ";
-        const string subtractionMessage = "Subtraction is : ";
-        const string multiplyMessage = "Multiplication is : ";
-        const string divisionMessage = "Division is : ";
-        const string inputFirstNumberMessage = "Enter two numbers : \n\tFirst Number: ";
-        const string inputSecondNumberMessage = "\tSecond Number: ";
-        const string wrongInputMessage = "Wrong Input !!!";
-        const string takeUserChoiceMessage = @"Which operation you want to perfom ?
+        const string AddMessage = "Addition is : ";
+        const string SubtractionMessage = "Subtraction is : ";
+        const string MultiplyMessage = "Multiplication is : ";
+        const string DivisionMessage = "Division is : ";
+        const string InputFirstNumberMessage = "Enter two numbers : \n\tFirst Number: ";
+        const string InputSecondNumberMessage = "\tSecond Number: ";
+        const string WrongInputMessage = "Wrong Input !!!";
+        const string TakeUserChoiceMessage = @"Which operation you want to perfom ?
             1. Addition
             2. Subtraction
             3. Multiplication
             4. Division
-            5. Exit
         Enter your Choice : ";
-        decimal firstNumber;
-        decimal secondNumber;
-        
-        
-        void takeInputNumbers()
+        decimal FirstNumber;
+        decimal SecondNumber;
+
+
+        void TakeInputNumbers()
         {
             while (true)
             {
                 try
                 {
-                    Console.Write(inputFirstNumberMessage);
-                    firstNumber = Convert.ToDecimal(Console.ReadLine());
+                    Console.Write(InputFirstNumberMessage);
+                    FirstNumber = Convert.ToDecimal(Console.ReadLine());
                     break;
                 }
                 catch (FormatException e)
@@ -42,8 +41,8 @@ class ConsoleCalculator
             {
                 try
                 {
-                    Console.Write(inputSecondNumberMessage);
-                    secondNumber = Convert.ToDecimal(Console.ReadLine());
+                    Console.Write(InputSecondNumberMessage);
+                    SecondNumber = Convert.ToDecimal(Console.ReadLine());
                     break;
                 }
                 catch (FormatException e)
@@ -52,17 +51,18 @@ class ConsoleCalculator
                 }
             }
         }
-       
-        
-        int choice;
+
+
+        char choice;
         do
         {
             while (true)
             {
+                Console.Clear();
                 try
                 {
-                    Console.Write(takeUserChoiceMessage);
-                    choice = Convert.ToInt32(Console.ReadLine());
+                    Console.Write(TakeUserChoiceMessage);
+                    choice = Convert.ToChar(Console.ReadLine());
                     break;
                 }
                 catch (FormatException e)
@@ -72,52 +72,44 @@ class ConsoleCalculator
                 }
             }
 
-            
             switch (choice)
             {
-                case 1:
-                    takeInputNumbers();
-                    Console.Write(addMessage);
-                    Console.WriteLine(CalculatorOperations.addNumbers(firstNumber, secondNumber));
+                case '1':
+                    TakeInputNumbers();
+                    Console.Write(AddMessage);
+                    Console.WriteLine(CalculatorOperations.AddNumbers(FirstNumber, SecondNumber));
                     break;
-                case 2:
-                    takeInputNumbers();
-                    Console.Write(subtractionMessage);
-                    Console.WriteLine(CalculatorOperations.subtractNumbers(firstNumber, secondNumber));
+                case '2':
+                    TakeInputNumbers();
+                    Console.Write(SubtractionMessage);
+                    Console.WriteLine(CalculatorOperations.SubtractNumbers(FirstNumber, SecondNumber));
                     break;
-                case 3:
-                    takeInputNumbers();
-                    Console.Write(multiplyMessage);
-                    Console.WriteLine(CalculatorOperations.multiplyNumbers(firstNumber, secondNumber));
+                case '3':
+                    TakeInputNumbers();
+                    Console.Write(MultiplyMessage);
+                    Console.WriteLine(CalculatorOperations.MultiplyNumbers(FirstNumber, SecondNumber));
                     break;
-                case 4:
-                    takeInputNumbers();
+                case '4':
+                    TakeInputNumbers();
                     try
                     {
-                        decimal divisionResult = CalculatorOperations.divideNumbers(firstNumber, secondNumber);
-                        Console.Write(divisionMessage);
-                        Console.WriteLine(divisionResult);
+                        decimal DivisionResult = CalculatorOperations.DivideNumbers(FirstNumber, SecondNumber);
+                        Console.Write(DivisionMessage);
+                        Console.WriteLine(DivisionResult);
                     }
                     catch (DivideByZeroException ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
                     break;
-                case 5:
-                    break;
                 default:
-                    Console.WriteLine(wrongInputMessage);
+                    Console.WriteLine(WrongInputMessage);
                     break;
             }
             Console.WriteLine("");
             Console.WriteLine("Do you want to perform more operations ? y/n");
-            if(Console.ReadLine() == "n")
-            {
-                choice = 5;
-            }
-            else 
-            Console.Clear();
-        } while (choice != 5); 
+            choice = Convert.ToChar(Console.Read());
+        } while (choice != 'n');
 
     }
 }

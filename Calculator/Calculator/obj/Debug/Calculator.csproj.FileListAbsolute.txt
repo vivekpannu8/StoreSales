@@ -1,0 +1,11 @@
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\bin\Debug\Calculator.exe
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.csproj.AssemblyReference.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.csproj.SuggestedBindingRedirects.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.Calculator.resources
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.exe
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\obj\Debug\Calculator.pdb
+C:\Users\vivek.pannu\source\repos\vivek-pannu\Calculator\Calculator\bin\Debug\Calculator.pdb
