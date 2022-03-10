@@ -31,7 +31,7 @@
 
 
 
-class ATM : Account
+class ATM 
 {
 
     private bool ValidateUserPin()

@@ -10,3 +10,5 @@ C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrar
 C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\refint\CalculatorLibrary.dll
 C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.pdb
 C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\ref\CalculatorLibrary.dll
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.StringResourcesEnglish.resources
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\CalculatorLibrary\obj\Debug\net6.0\CalculatorLibrary.csproj.GenerateResource.cache

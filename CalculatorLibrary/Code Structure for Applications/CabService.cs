@@ -38,7 +38,10 @@ public class Driver : Ride
     {
 		// To know if the driver is free to go for a ride
     }
-	public void bookRide
+	public void BookForRide() { 
+	//To book the driver for a ride
+	}
+	public void ReceivePayment() { }
 }
 
 public class Passenger : Ride
@@ -49,5 +52,6 @@ public class Passenger : Ride
 	private string passengerPhone;
 
 	public void bookRide() { }
+	public void Payment() { }
 }
 

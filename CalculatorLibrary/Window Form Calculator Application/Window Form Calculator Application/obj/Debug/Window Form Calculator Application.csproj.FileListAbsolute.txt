@@ -1,0 +1,11 @@
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\bin\Debug\Window Form Calculator Application.exe.config
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\bin\Debug\Window Form Calculator Application.exe
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\bin\Debug\Window Form Calculator Application.pdb
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window Form Calculator Application.csproj.AssemblyReference.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window Form Calculator Application.csproj.SuggestedBindingRedirects.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window_Form_Calculator_Application.Form1.resources
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window_Form_Calculator_Application.Properties.Resources.resources
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window Form Calculator Application.csproj.GenerateResource.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window Form Calculator Application.csproj.CoreCompileInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window Form Calculator Application.exe
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Window Form Calculator Application\Window Form Calculator Application\obj\Debug\Window Form Calculator Application.pdb

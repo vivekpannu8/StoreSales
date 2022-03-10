@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\ConsoleCalculatorApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj",
+        "projectName": "CalculatorLibrary",
+        "projectPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj",
+        "packagesPath": "C:\\Users\\vivek.pannu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\CalculatorLibrary\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\vivek.pannu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\ConsoleCalculatorApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\ConsoleCalculatorApp.csproj",
+        "projectName": "ConsoleCalculatorApp",
+        "projectPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\ConsoleCalculatorApp.csproj",
+        "packagesPath": "C:\\Users\\vivek.pannu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\vivek.pannu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj": {
+                "projectPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\CalculatorLibrary\\CalculatorLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

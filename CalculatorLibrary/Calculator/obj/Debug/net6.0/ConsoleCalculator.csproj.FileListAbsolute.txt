@@ -1,0 +1,7 @@
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Calculator\obj\Debug\net6.0\ConsoleCalculator.csproj.AssemblyReference.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Calculator\obj\Debug\net6.0\ConsoleCalculator.StringResourcesEnglish.resources
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Calculator\obj\Debug\net6.0\ConsoleCalculator.csproj.GenerateResource.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Calculator\obj\Debug\net6.0\ConsoleCalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Calculator\obj\Debug\net6.0\ConsoleCalculator.AssemblyInfoInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Calculator\obj\Debug\net6.0\ConsoleCalculator.AssemblyInfo.cs
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Calculator\obj\Debug\net6.0\ConsoleCalculator.csproj.CoreCompileInputs.cache

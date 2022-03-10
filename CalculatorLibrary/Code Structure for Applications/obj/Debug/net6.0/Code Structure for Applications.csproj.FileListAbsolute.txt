@@ -1,0 +1,5 @@
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Code Structure for Applications\obj\Debug\net6.0\Code Structure for Applications.csproj.AssemblyReference.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Code Structure for Applications\obj\Debug\net6.0\Code Structure for Applications.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Code Structure for Applications\obj\Debug\net6.0\Code Structure for Applications.AssemblyInfoInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Code Structure for Applications\obj\Debug\net6.0\Code Structure for Applications.AssemblyInfo.cs
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\Code Structure for Applications\obj\Debug\net6.0\Code Structure for Applications.csproj.CoreCompileInputs.cache

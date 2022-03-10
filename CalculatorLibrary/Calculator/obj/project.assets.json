@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\Calculator.csproj",
-      "projectName": "Calculator",
-      "projectPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\Calculator.csproj",
+      "projectUniqueName": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\ConsoleCalculatorApp.csproj",
+      "projectName": "ConsoleCalculatorApp",
+      "projectPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\ConsoleCalculatorApp.csproj",
       "packagesPath": "C:\\Users\\vivek.pannu\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\vivek.pannu\\source\\repos\\vivek-pannu\\CalculatorLibrary\\Calculator\\obj\\",
       "projectStyle": "PackageReference",
