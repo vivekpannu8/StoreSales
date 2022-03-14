@@ -1,26 +1,5 @@
 ﻿using CalculatorLibrary;
 using System.Resources;
-enum UserChoice
-{
-    Add = 1,
-    Subtract,
-    Multiply,
-    Divide,
-    Log,
-    Exponential,
-    TrigonometricFunctions,
-    Equation
-}
-
-enum TrigonometricRatio
-{
-    Sin = 1,
-    Cos,
-    Tan,
-    Cosec,
-    Sec,
-    Cot
-}
 
 class ConsoleCalculator
 {
@@ -29,39 +8,9 @@ class ConsoleCalculator
         ResourceManager rm = new ResourceManager("ConsoleCalculatorApp.StringResourcesEnglish", typeof(ConsoleCalculator).Assembly);
         do
         {
-            //Console.Clear();   
+            Console.Clear();   
             ConsoleCalculatorUI UI = new ConsoleCalculatorUI();
-            
-            switch(UI.TakeUserChoice())
-            {
-                case "Add":
-                    UI.GetAddition();
-                    break;
-                case "Subtract":
-                    UI.GetSubtraction();
-                    break;
-                case "Multiply":
-                    UI.GetMultiplication();
-                    break;
-                case "Divide":
-                    UI.GetDivision();
-                    break;
-                case "Log":
-                    UI.GetLog();
-                    break;
-                case "Exponential":
-                    UI.GetExponential();
-                    break;
-                case "TrigonometricFunctions":
-                    UI.GetTrigonometricRatio();
-                    break;
-                case "Equation":
-                    UI.SolveEquation();
-                    break;
-                default:
-                    Console.WriteLine(rm.GetString("WrongInputMessage"));
-                    break;
-            }
+            UI.TakeUserChoice();
             Console.WriteLine("");
             Console.WriteLine(rm.GetString("RunAgainMessage"));
         } while (Console.ReadKey().KeyChar == 13);
@@ -82,7 +31,6 @@ class ConsoleCalculatorUI
         Console.Write(rm.GetString("InputSecondNumberMessage"));
         SecondNumber = GetInputNumber();
     }
-    
     private decimal GetInputNumber()
     {
         decimal Number;
@@ -98,129 +46,129 @@ class ConsoleCalculatorUI
             return GetInputNumber();
         }
     }
-
-    public string? TakeUserChoice()
-    {
+    public void TakeUserChoice()
+    {  
         int choice;
+        for(int i = 1; i < 10; i++)
+        {
+            Console.WriteLine(rm.GetString("TakeUserChoiceMessage"+i));
+        }
+            Console.Write(rm.GetString("EnterChoiceMessage"));
         try
         {
-            Console.WriteLine(rm.GetString("AskUserMessage"));
-            Console.WriteLine(rm.GetString("AddChoice"));
-            Console.WriteLine(rm.GetString("SubtractChoice"));
-            Console.WriteLine(rm.GetString("MultiplyChoice"));
-            Console.WriteLine(rm.GetString("DivideChoice"));
-            Console.WriteLine(rm.GetString("LogChoice"));
-            Console.WriteLine(rm.GetString("ExponentialChoice"));
-            Console.WriteLine(rm.GetString("TrigonometricChoice"));
-            Console.WriteLine(rm.GetString("ExpressionChoice"));
-            Console.Write(rm.GetString("EnterChoiceMessage"));
             choice = Convert.ToInt32(Console.ReadLine());
-            
-            return Enum.GetName(typeof(UserChoice),choice);
-           
+            HandleUserChoice(choice);
         }
         catch (FormatException e)
         {
             Console.Clear();
             Console.WriteLine(e.Message);
-            return TakeUserChoice();
+            TakeUserChoice();
+        }
+    }
+    public void HandleUserChoice(int choice)
+    {
+        List<char> ArithmeticOperator = new List<char> { '+', '-', '*', '/' };
+        var AdvancedOperation = new Func<int>[] { GetLog, GetExponential, GetTrigonometricRatio, SolveEquation };
+        if (choice >= 1 && choice <= 4)
+        {
+            PerformArithmeticOperation(ArithmeticOperator[choice - 1]);
+        }
+        else if (choice > 4 && choice <= 8)
+        {
+            AdvancedOperation[choice - 5]();
+        }
+        else
+        {
+            Console.WriteLine(rm.GetString("WrongInputMessage"));
         }
     }
 
     CalculatorOperations Operation = new CalculatorOperations();
 
-    public void GetAddition()
+    public void PerformArithmeticOperation(char operatr)
     {
         GetOperands();
-        Console.Write(rm.GetString("AddMessage"));
-        Console.WriteLine(Operation.AddNumbers(FirstNumber, SecondNumber));
-    }
-
-    public void GetSubtraction()
-    {
-        GetOperands();
-        Console.Write(rm.GetString("SubtractionMessage"));
-        Console.WriteLine(Operation.SubtractNumbers(FirstNumber, SecondNumber));
-    }
-
-    public void GetMultiplication()
-    {
-        GetOperands();
-        Console.Write(rm.GetString("MultiplyMessage"));
-        Console.WriteLine(Operation.MultiplyNumbers(FirstNumber, SecondNumber));
-    }
-
-    public void GetDivision()
-    {
-        GetOperands();
-        try
+        decimal? Result = Operation.ArithmeticOperation(FirstNumber, SecondNumber, operatr);
+        if (Result.HasValue)
         {
-            decimal DivisionResult = Operation.DivideNumbers(FirstNumber, SecondNumber);
-            Console.Write(rm.GetString("DivisionMessage"));
-            Console.WriteLine(DivisionResult);
+            Console.Write(rm.GetString("AnswerMessage"));
+            Console.WriteLine(Result);
         }
-        catch (DivideByZeroException ex)
+        else
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine(rm.GetString("DivideByZeroError"));
         }
     }
-
-    public void GetLog()
+    public int GetLog()
     {
         Console.Write(rm.GetString("EnterNumber"));
         FirstNumber = GetInputNumber();
+        Console.Write(rm.GetString("AnswerMessage"));
         Console.WriteLine(Operation.GetLog(Convert.ToDouble(FirstNumber)));
+        return 0;
     }
 
-    public void GetExponential()
+    public int GetExponential()
     {
         Console.Write(rm.GetString("EnterNumber"));
         FirstNumber = GetInputNumber();
+        Console.Write(rm.GetString("AnswerMessage"));
         Console.WriteLine(Operation.GetExp(Convert.ToDouble(FirstNumber)));
+        return 0;
     }
-    public void GetTrigonometricRatio()
+    public int GetTrigonometricRatio()
     {
-        switch (TakeTrigoChoice())
+        var TrigoFunctions = new Func<double,double>[] { Operation.GetTrigoSin, Operation.GetTrigoCos, Operation.GetTrigoTan };
+        int choice = TakeTrigoChoice();
+        Console.Write(rm.GetString("AnswerMessage"));
+        if(choice <= 3)
         {
-            case "Sin":
-                Console.WriteLine(Operation.GetTrigoSin((double)(FirstNumber)));
-                break;
-            case "Cos":
-                Console.WriteLine(Operation.GetTrigoCos((double)(FirstNumber)));
-                break;
-            case "Tan":
-                Console.WriteLine(Operation.GetTrigoTan((double)(FirstNumber)));
-                break;
-            case "Cosec":
-                Console.WriteLine(Operation.GetTrigoSin((double)(FirstNumber)));
-                break;
-            case "Sec":
-                Console.WriteLine(Operation.GetTrigoCos((double)(FirstNumber)));
-                break;
-            case "Cot":
-                Console.WriteLine(Operation.GetTrigoTan((double)(FirstNumber)));
-                break;
+            Console.WriteLine(TrigoFunctions[choice-1]((double)FirstNumber));
+        }
+        else
+        {
+            choice -= 3;
+            Console.WriteLine(1/TrigoFunctions[choice-1]((double)FirstNumber));
         }
         
+        return 0;
     }
-    private string? TakeTrigoChoice()
+    private int TakeTrigoChoice()
     {
-        Console.WriteLine(rm.GetString("Sin"));
-        Console.WriteLine(rm.GetString("Cos"));
-        Console.WriteLine(rm.GetString("Tan"));
-        Console.WriteLine(rm.GetString("Cosec"));
-        Console.WriteLine(rm.GetString("Sec"));
-        Console.WriteLine(rm.GetString("Cot"));
+        for(int i = 1; i <= 6; i++)
+        {
+            Console.WriteLine(rm.GetString("TrigoRatio"+i));
+        }
         Console.Write(rm.GetString("EnterChoiceMessage"));
         int choice = Convert.ToInt32(Console.ReadLine());
-        Console.Write(rm.GetString("EnterAngle"));
-        FirstNumber = GetInputNumber();
-        return Enum.GetName(typeof(TrigonometricRatio),choice);
+        if(choice >= 1 && choice <= 6)
+        {
+            Console.Write(rm.GetString("EnterAngle"));
+            FirstNumber = GetInputNumber();
+        }
+        else
+        {
+            Console.WriteLine(rm.GetString("InvalidChoiceMessage"));
+            Console.Clear();
+            choice = TakeTrigoChoice();
+        }
+        return choice;
     }
-    public void SolveEquation()
+    public int SolveEquation()
     {
         Console.Write(rm.GetString("EnterEquationMessage"));
         string? equation = Console.ReadLine();
-        Console.WriteLine(Operation.SolveEquation(equation));
+        decimal? result = Operation.SolveEquation(equation);
+        if (result.HasValue)
+        {
+            Console.Write(rm.GetString("AnswerMessage"));
+            Console.WriteLine(result);
+        }
+        else
+        {
+            Console.WriteLine(rm.GetString("ExpressionErrorMessage"));
+        }
+        return 0;
     }
 }

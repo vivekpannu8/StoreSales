@@ -61,15 +61,6 @@ namespace ConsoleCalculatorApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1. Addition.
-        /// </summary>
-        internal static string AddChoice {
-            get {
-                return ResourceManager.GetString("AddChoice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Addition is : .
         /// </summary>
         internal static string AddMessage {
@@ -79,38 +70,11 @@ namespace ConsoleCalculatorApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Which operation you want to perfom ?.
+        ///   Looks up a localized string similar to Answer is : .
         /// </summary>
-        internal static string AskUserMessage {
+        internal static string AnswerMessage {
             get {
-                return ResourceManager.GetString("AskUserMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2. Cos.
-        /// </summary>
-        internal static string Cos {
-            get {
-                return ResourceManager.GetString("Cos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 4. Cosec.
-        /// </summary>
-        internal static string Cosec {
-            get {
-                return ResourceManager.GetString("Cosec", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 6. Cot.
-        /// </summary>
-        internal static string Cot {
-            get {
-                return ResourceManager.GetString("Cot", resourceCulture);
+                return ResourceManager.GetString("AnswerMessage", resourceCulture);
             }
         }
         
@@ -120,15 +84,6 @@ namespace ConsoleCalculatorApp {
         internal static string DivideByZeroError {
             get {
                 return ResourceManager.GetString("DivideByZeroError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 4. Divide.
-        /// </summary>
-        internal static string DivideChoice {
-            get {
-                return ResourceManager.GetString("DivideChoice", resourceCulture);
             }
         }
         
@@ -187,20 +142,11 @@ namespace ConsoleCalculatorApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 6. Exponential.
+        ///   Looks up a localized string similar to Invalid Expression.
         /// </summary>
-        internal static string ExponentialChoice {
+        internal static string ExpressionErrorMessage {
             get {
-                return ResourceManager.GetString("ExponentialChoice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 8. Expression.
-        /// </summary>
-        internal static string ExpressionChoice {
-            get {
-                return ResourceManager.GetString("ExpressionChoice", resourceCulture);
+                return ResourceManager.GetString("ExpressionErrorMessage", resourceCulture);
             }
         }
         
@@ -223,20 +169,11 @@ namespace ConsoleCalculatorApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5. Log.
+        ///   Looks up a localized string similar to Enter a valid choice !!!.
         /// </summary>
-        internal static string LogChoice {
+        internal static string InvalidChoiceMessage {
             get {
-                return ResourceManager.GetString("LogChoice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 3. Multiply.
-        /// </summary>
-        internal static string MultiplyChoice {
-            get {
-                return ResourceManager.GetString("MultiplyChoice", resourceCulture);
+                return ResourceManager.GetString("InvalidChoiceMessage", resourceCulture);
             }
         }
         
@@ -259,33 +196,6 @@ namespace ConsoleCalculatorApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5. Sec.
-        /// </summary>
-        internal static string Sec {
-            get {
-                return ResourceManager.GetString("Sec", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 1. Sin.
-        /// </summary>
-        internal static string Sin {
-            get {
-                return ResourceManager.GetString("Sin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 2. Subtraction.
-        /// </summary>
-        internal static string SubtractChoice {
-            get {
-                return ResourceManager.GetString("SubtractChoice", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Subtraction is : .
         /// </summary>
         internal static string SubtractionMessage {
@@ -295,20 +205,137 @@ namespace ConsoleCalculatorApp {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3. Tan.
+        ///   Looks up a localized string similar to Which operation you want to perfom ?.
         /// </summary>
-        internal static string Tan {
+        internal static string TakeUserChoiceMessage1 {
             get {
-                return ResourceManager.GetString("Tan", resourceCulture);
+                return ResourceManager.GetString("TakeUserChoiceMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1. Addition.
+        /// </summary>
+        internal static string TakeUserChoiceMessage2 {
+            get {
+                return ResourceManager.GetString("TakeUserChoiceMessage2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2. Subtraction.
+        /// </summary>
+        internal static string TakeUserChoiceMessage3 {
+            get {
+                return ResourceManager.GetString("TakeUserChoiceMessage3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3. Multiply.
+        /// </summary>
+        internal static string TakeUserChoiceMessage4 {
+            get {
+                return ResourceManager.GetString("TakeUserChoiceMessage4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4. Divide.
+        /// </summary>
+        internal static string TakeUserChoiceMessage5 {
+            get {
+                return ResourceManager.GetString("TakeUserChoiceMessage5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5. Log.
+        /// </summary>
+        internal static string TakeUserChoiceMessage6 {
+            get {
+                return ResourceManager.GetString("TakeUserChoiceMessage6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6. Exponential.
+        /// </summary>
+        internal static string TakeUserChoiceMessage7 {
+            get {
+                return ResourceManager.GetString("TakeUserChoiceMessage7", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 7. Trigonometric Ratio.
         /// </summary>
-        internal static string TrigonometricChoice {
+        internal static string TakeUserChoiceMessage8 {
             get {
-                return ResourceManager.GetString("TrigonometricChoice", resourceCulture);
+                return ResourceManager.GetString("TakeUserChoiceMessage8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8. Expression.
+        /// </summary>
+        internal static string TakeUserChoiceMessage9 {
+            get {
+                return ResourceManager.GetString("TakeUserChoiceMessage9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1. Sin.
+        /// </summary>
+        internal static string TrigoRatio1 {
+            get {
+                return ResourceManager.GetString("TrigoRatio1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2. Cos.
+        /// </summary>
+        internal static string TrigoRatio2 {
+            get {
+                return ResourceManager.GetString("TrigoRatio2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3. Tan.
+        /// </summary>
+        internal static string TrigoRatio3 {
+            get {
+                return ResourceManager.GetString("TrigoRatio3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4. Cosec.
+        /// </summary>
+        internal static string TrigoRatio4 {
+            get {
+                return ResourceManager.GetString("TrigoRatio4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5. Sec.
+        /// </summary>
+        internal static string TrigoRatio5 {
+            get {
+                return ResourceManager.GetString("TrigoRatio5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6. Cot.
+        /// </summary>
+        internal static string TrigoRatio6 {
+            get {
+                return ResourceManager.GetString("TrigoRatio6", resourceCulture);
             }
         }
         

@@ -117,29 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddChoice" xml:space="preserve">
-    <value>1. Addition</value>
-  </data>
   <data name="AddMessage" xml:space="preserve">
     <value>Addition is : </value>
   </data>
-  <data name="AskUserMessage" xml:space="preserve">
-    <value>Which operation you want to perfom ?</value>
-  </data>
-  <data name="Cos" xml:space="preserve">
-    <value>2. Cos</value>
-  </data>
-  <data name="Cosec" xml:space="preserve">
-    <value>4. Cosec</value>
-  </data>
-  <data name="Cot" xml:space="preserve">
-    <value>6. Cot</value>
+  <data name="AnswerMessage" xml:space="preserve">
+    <value>Answer is : </value>
   </data>
   <data name="DivideByZeroError" xml:space="preserve">
     <value>Cannot divide by Zero</value>
-  </data>
-  <data name="DivideChoice" xml:space="preserve">
-    <value>4. Divide</value>
   </data>
   <data name="DivisionMessage" xml:space="preserve">
     <value>Division is : </value>
@@ -159,11 +144,8 @@
   <data name="EnterNumber" xml:space="preserve">
     <value>Enter a number : </value>
   </data>
-  <data name="ExponentialChoice" xml:space="preserve">
-    <value>6. Exponential</value>
-  </data>
-  <data name="ExpressionChoice" xml:space="preserve">
-    <value>8. Expression</value>
+  <data name="ExpressionErrorMessage" xml:space="preserve">
+    <value>Invalid Expression</value>
   </data>
   <data name="InputFirstNumberMessage" xml:space="preserve">
     <value>Enter First Number : </value>
@@ -171,11 +153,8 @@
   <data name="InputSecondNumberMessage" xml:space="preserve">
     <value>Enter Second Number : </value>
   </data>
-  <data name="LogChoice" xml:space="preserve">
-    <value>5. Log</value>
-  </data>
-  <data name="MultiplyChoice" xml:space="preserve">
-    <value>3. Multiply</value>
+  <data name="InvalidChoiceMessage" xml:space="preserve">
+    <value>Enter a valid choice !!!</value>
   </data>
   <data name="MultiplyMessage" xml:space="preserve">
     <value>Multiplication is : </value>
@@ -183,23 +162,53 @@
   <data name="RunAgainMessage" xml:space="preserve">
     <value>Press 'Enter' to run again else Press any other key to exit</value>
   </data>
-  <data name="Sec" xml:space="preserve">
-    <value>5. Sec</value>
-  </data>
-  <data name="Sin" xml:space="preserve">
-    <value>1. Sin</value>
-  </data>
-  <data name="SubtractChoice" xml:space="preserve">
-    <value>2. Subtraction</value>
-  </data>
   <data name="SubtractionMessage" xml:space="preserve">
     <value>Subtraction is : </value>
   </data>
-  <data name="Tan" xml:space="preserve">
+  <data name="TakeUserChoiceMessage1" xml:space="preserve">
+    <value>Which operation you want to perfom ?</value>
+  </data>
+  <data name="TakeUserChoiceMessage2" xml:space="preserve">
+    <value>1. Addition</value>
+  </data>
+  <data name="TakeUserChoiceMessage3" xml:space="preserve">
+    <value>2. Subtraction</value>
+  </data>
+  <data name="TakeUserChoiceMessage4" xml:space="preserve">
+    <value>3. Multiply</value>
+  </data>
+  <data name="TakeUserChoiceMessage5" xml:space="preserve">
+    <value>4. Divide</value>
+  </data>
+  <data name="TakeUserChoiceMessage6" xml:space="preserve">
+    <value>5. Log</value>
+  </data>
+  <data name="TakeUserChoiceMessage7" xml:space="preserve">
+    <value>6. Exponential</value>
+  </data>
+  <data name="TakeUserChoiceMessage8" xml:space="preserve">
+    <value>7. Trigonometric Ratio</value>
+  </data>
+  <data name="TakeUserChoiceMessage9" xml:space="preserve">
+    <value>8. Expression</value>
+  </data>
+  <data name="TrigoRatio1" xml:space="preserve">
+    <value>1. Sin</value>
+  </data>
+  <data name="TrigoRatio2" xml:space="preserve">
+    <value>2. Cos</value>
+  </data>
+  <data name="TrigoRatio3" xml:space="preserve">
     <value>3. Tan</value>
   </data>
-  <data name="TrigonometricChoice" xml:space="preserve">
-    <value>7. Trigonometric Ratio</value>
+  <data name="TrigoRatio4" xml:space="preserve">
+    <value>4. Cosec</value>
+  </data>
+  <data name="TrigoRatio5" xml:space="preserve">
+    <value>5. Sec</value>
+  </data>
+  <data name="TrigoRatio6" xml:space="preserve">
+    <value>6. Cot</value>
   </data>
   <data name="WrongInputMessage" xml:space="preserve">
     <value>Wrong Input !!!</value>

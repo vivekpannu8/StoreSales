@@ -3,28 +3,11 @@
 namespace CalculatorLibrary
 {
     public class CalculatorOperations
-    {   
-        public decimal AddNumbers (decimal Number1, decimal Number2)
+    {
+        public decimal? ArithmeticOperation(decimal Number1, decimal Number2, char Operator)
         {
-            return Number1 + Number2;
-        }
-        public decimal SubtractNumbers(decimal Number1, decimal Number2)
-        {
-            return Number1 - Number2;
-        }
-        public decimal MultiplyNumbers(decimal Number1, decimal Number2)
-        {
-            return Number1 * Number2;
-        }
-        public decimal DivideNumbers(decimal Number1, decimal Number2)
-        {
-            if(Number2 == 0)
-            {
-                ResourceManager rm = new ResourceManager("CalculatorLibrary.StringResourcesEnglish", typeof(CalculatorOperations).Assembly);
-                throw new DivideByZeroException(rm.GetString("DivideByZeroError"));
-            }
-            
-            return Number1 / Number2;
+            string Equation = Number1.ToString() + Operator + Number2;
+            return InfixToPostfixThenEval(Equation);
         }
         public double GetLog(double Number)
         {
@@ -34,26 +17,30 @@ namespace CalculatorLibrary
         {
             return Math.Exp(Number);
         }
-        public double GetTrigoSin(double Number)
+        public double GetTrigoSin(double Angle)
         {
-            return Math.Sin(Number);
+            return Math.Sin(DegreeToRadian(Angle));
         }
-        public double GetTrigoCos(double Number)
+        public double GetTrigoCos(double Angle)
         {
-            return Math.Cos(Number);
+            return Math.Cos(DegreeToRadian(Angle));
         }
-        public double GetTrigoTan(double Number)
+        public double GetTrigoTan(double Angle)
         {
-            return Math.Tan(Number);
+            return Math.Tan(DegreeToRadian(Angle));
+        }
+        private double DegreeToRadian(double Degree)
+        {
+            return (Math.PI / 180) * Degree;
         }
         public decimal? SolveEquation(string? Equation)
         {
-            if(!String.IsNullOrEmpty(Equation))
+            if (!String.IsNullOrEmpty(Equation))
             {
-                decimal Result = InfixToPostfixThenEval(Equation);
+                decimal? Result = InfixToPostfixThenEval(Equation);
                 return Result;
             }
-            return 0;
+            return null;
         }
         private int GetOperatorPrecedence(char Character)
         {
@@ -72,9 +59,7 @@ namespace CalculatorLibrary
         {
             return (Character >= '0' && Character <= '9');
         }
-
-        // Function to convert an infix expression to a postfix expression.
-        private decimal InfixToPostfixThenEval(string Infix)
+        private decimal? InfixToPostfixThenEval(string Infix)
         {
             Stack<char> Stack = new Stack<char>();                  //To convert Infix to Postfix
             Stack<decimal> Postfix = new Stack<decimal>();          //To Evaluate the Postfix whenever an operator is pushed to it
@@ -86,11 +71,10 @@ namespace CalculatorLibrary
                 {
                     if (!justPushed)
                     {
-                        Console.WriteLine("Pushed Value is : {0}", Value);
                         Postfix.Push(Value);
                         Value = 0;
                         justPushed = true;
-                    }   
+                    }
                 }
                 // Case 1. If the current token is an opening bracket '(',
                 // push it into the stack
@@ -103,7 +87,14 @@ namespace CalculatorLibrary
                 {
                     while (Stack.Peek() != '(')
                     {
+                        try
+                        {
                             EvalExpression();
+                        }
+                        catch (Exception)
+                        {
+                            break;
+                        }
                     }
                     Stack.Pop();
                 }
@@ -121,40 +112,74 @@ namespace CalculatorLibrary
                     // remove operators from the stack with higher or equal precedence
                     while (Stack.Count != 0 && GetOperatorPrecedence(Character) >= GetOperatorPrecedence(Stack.Peek()))
                     {
-                        EvalExpression();
+                        try
+                        {
+                            EvalExpression();
+                        }
+                        catch (Exception)
+                        {
+                            break;
+                        }
                     }
                     Stack.Push(Character);
-                }  
+                }
             }
-            if(!justPushed)
-            Postfix.Push(Value);
+            if (!justPushed)
+                Postfix.Push(Value);
             while (Stack.Count != 0)
             {
-                EvalExpression();
+                try
+                {
+                    EvalExpression();
+                }
+                catch (Exception)
+                {
+                    break;
+                }
             }
-            return Postfix.Pop();
+            try
+            {
+                return Postfix.Pop();
+            }
+            catch (Exception) 
+            {
+                return null;
+            }
 
             void EvalExpression()
             {
                 decimal Number2 = Postfix.Pop();
+                if (Postfix.Count == 0)
+                {
+                    throw new InvalidOperationException();
+                }
                 decimal Number1 = Postfix.Pop();
-                Console.WriteLine(Number1 + " " +Stack.Peek()+ " " + Number2);
                 switch (Stack.Pop())
                 {
                     case '+':
-                        Postfix.Push(AddNumbers(Number1, Number2));
+                        Postfix.Push(Number1 + Number2);
                         break;
                     case '-':
-                        Postfix.Push(SubtractNumbers(Number1, Number2));
+                        Postfix.Push(Number1 - Number2);
                         break;
                     case '*':
-                        Postfix.Push(MultiplyNumbers(Number1, Number2));
+                        Postfix.Push(Number1 * Number2);
                         break;
                     case '/':
                         Postfix.Push(DivideNumbers(Number1, Number2));
                         break;
                 }
             }
+        }
+        public decimal DivideNumbers(decimal Number1, decimal Number2)
+        {
+            if (Number2 == 0)
+            {
+                ResourceManager rm = new ResourceManager("CalculatorLibrary.StringResourcesEnglish", typeof(CalculatorOperations).Assembly);
+                throw new DivideByZeroException(rm.GetString("DivideByZeroError"));
+            }
+
+            return Number1 / Number2;
         }
     }
 }
