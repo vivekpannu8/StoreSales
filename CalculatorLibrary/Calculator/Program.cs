@@ -1,6 +1,14 @@
 ﻿using CalculatorLibrary;
 using System.Resources;
 
+enum AdvancedArithmeticOperation
+{
+    Log = 5,
+    Exp = 6,
+    Sin = 1,
+    Cos = 2,
+    Tan = 3,
+}
 class ConsoleCalculator
 {
     static void Main()
@@ -69,14 +77,13 @@ class ConsoleCalculatorUI
     public void HandleUserChoice(int choice)
     {
         List<char> ArithmeticOperator = new List<char> { '+', '-', '*', '/' };
-        var AdvancedOperation = new Func<int>[] { GetLog, GetExponential, GetTrigonometricRatio, SolveEquation };
         if (choice >= 1 && choice <= 4)
         {
             PerformArithmeticOperation(ArithmeticOperator[choice - 1]);
         }
         else if (choice > 4 && choice <= 8)
         {
-            AdvancedOperation[choice - 5]();
+            PerformAdvancedArithmeticOp(choice);
         }
         else
         {
@@ -100,49 +107,37 @@ class ConsoleCalculatorUI
             Console.WriteLine(rm.GetString("DivideByZeroError"));
         }
     }
-    public int GetLog()
+    public void PerformAdvancedArithmeticOp(int choice)
     {
-        Console.Write(rm.GetString("EnterNumber"));
-        FirstNumber = GetInputNumber();
-        Console.Write(rm.GetString("AnswerMessage"));
-        Console.WriteLine(Operation.GetLog(Convert.ToDouble(FirstNumber)));
-        return 0;
-    }
-
-    public int GetExponential()
-    {
-        Console.Write(rm.GetString("EnterNumber"));
-        FirstNumber = GetInputNumber();
-        Console.Write(rm.GetString("AnswerMessage"));
-        Console.WriteLine(Operation.GetExp(Convert.ToDouble(FirstNumber)));
-        return 0;
-    }
-    public int GetTrigonometricRatio()
-    {
-        var TrigoFunctions = new Func<double,double>[] { Operation.GetTrigoSin, Operation.GetTrigoCos, Operation.GetTrigoTan };
-        int choice = TakeTrigoChoice();
-        Console.Write(rm.GetString("AnswerMessage"));
-        if(choice <= 3)
+        if(choice == 8)
         {
-            Console.WriteLine(TrigoFunctions[choice-1]((double)FirstNumber));
+            SolveEquation();
         }
         else
         {
-            choice -= 3;
-            Console.WriteLine(1/TrigoFunctions[choice-1]((double)FirstNumber));
+            if(choice == 7)
+            {
+                choice = TakeTrigoChoice();
+            }
+            else
+            {
+                Console.Write(rm.GetString("EnterNumber"));
+                FirstNumber = GetInputNumber();
+            }
+            string? OperationToBePerformed = Enum.GetName(typeof(AdvancedArithmeticOperation), choice);
+            Console.Write(rm.GetString("AnswerMessage"));
+            Console.WriteLine(Operation.AdvancedOperations(Convert.ToDouble(FirstNumber), OperationToBePerformed));
         }
-        
-        return 0;
     }
     private int TakeTrigoChoice()
     {
-        for(int i = 1; i <= 6; i++)
+        for(int i = 1; i <= 3; i++)
         {
             Console.WriteLine(rm.GetString("TrigoRatio"+i));
         }
         Console.Write(rm.GetString("EnterChoiceMessage"));
         int choice = Convert.ToInt32(Console.ReadLine());
-        if(choice >= 1 && choice <= 6)
+        if(choice >= 1 && choice <= 3)
         {
             Console.Write(rm.GetString("EnterAngle"));
             FirstNumber = GetInputNumber();
@@ -155,7 +150,7 @@ class ConsoleCalculatorUI
         }
         return choice;
     }
-    public int SolveEquation()
+    public void SolveEquation()
     {
         Console.Write(rm.GetString("EnterEquationMessage"));
         string? equation = Console.ReadLine();
@@ -169,6 +164,5 @@ class ConsoleCalculatorUI
         {
             Console.WriteLine(rm.GetString("ExpressionErrorMessage"));
         }
-        return 0;
     }
 }

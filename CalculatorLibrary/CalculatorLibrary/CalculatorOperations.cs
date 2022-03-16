@@ -1,7 +1,7 @@
 ﻿using System.Resources;
 
 namespace CalculatorLibrary
-{
+{  
     public class CalculatorOperations
     {
         public decimal? ArithmeticOperation(decimal Number1, decimal Number2, char Operator)
@@ -9,25 +9,15 @@ namespace CalculatorLibrary
             string Equation = Number1.ToString() + Operator + Number2;
             return InfixToPostfixThenEval(Equation);
         }
-        public double GetLog(double Number)
+        public double AdvancedOperations(double Number, String Operation)
         {
-            return Math.Log10(Number);
-        }
-        public double GetExp(double Number)
-        {
-            return Math.Exp(Number);
-        }
-        public double GetTrigoSin(double Angle)
-        {
-            return Math.Sin(DegreeToRadian(Angle));
-        }
-        public double GetTrigoCos(double Angle)
-        {
-            return Math.Cos(DegreeToRadian(Angle));
-        }
-        public double GetTrigoTan(double Angle)
-        {
-            return Math.Tan(DegreeToRadian(Angle));
+            List<string> Operations = new List<string> { "Log", "Exp", "Sin", "Cos", "Tan" };
+            var MathLibMethods = new Func<double, double>[] { Math.Log10, Math.Exp, Math.Sin, Math.Cos, Math.Tan };
+            if(Operations.IndexOf(Operation) > 1)
+            {
+                Number = DegreeToRadian(Number);
+            }
+            return MathLibMethods[Operations.IndexOf(Operation)](Number);
         }
         private double DegreeToRadian(double Degree)
         {
@@ -52,7 +42,6 @@ namespace CalculatorLibrary
             {
                 return 4;
             }
-
             return 10;            // for opening bracket '('
         }
         private bool IsOperand(char Character)
