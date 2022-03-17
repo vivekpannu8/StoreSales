@@ -4,15 +4,45 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+//using CalcLibrary;
+
 
 namespace Window_Form_Calculator_Application
 {
     public class CalculatorForm : Form
     {
         private TextBox DisplayField;
+        private TextBox DisplayAnswer;
+        private Button button0 = new Button();
+        private Button button1 = new Button();
+        private Button button2 = new Button();
+        private Button button3 = new Button();
+        private Button button4 = new Button();
+        private Button button5 = new Button();
+        private Button button6 = new Button();
+        private Button button7 = new Button();
+        private Button button8 = new Button();
+        private Button button9 = new Button();
+        private Button buttonDot = new Button();
+        private Button buttonSign = new Button();
+         
+        private Button buttonC = new Button();
+        private Button buttonCE = new Button();
+        private Button buttonPercentage = new Button();
+        private Button buttonInverse = new Button();
+        private Button buttonRoot = new Button();
+        private Button buttonSquare = new Button();
         
-        private Button[] Button0 = new Button[20];
-        
+        private Button buttonEquals = new Button();
+        private Button buttonPlus = new Button();
+        private Button buttonMinus = new Button();
+        private Button buttonMultiply = new Button();
+        private Button buttonDivide = new Button();
+        private Button buttonX = new Button();
+
+        //private Button[] Button0 = new Button[20];
+        private string Equation;
+        //private CalculatorOperations Operation = new CalculatorOperations();
 
         public CalculatorForm()
         {
@@ -22,7 +52,7 @@ namespace Window_Form_Calculator_Application
             this.Text = "Calculator";
             this.MinimumSize = new Size(328, 400);
             this.BackColor = Color.White;
-            
+
             DisplayField = new TextBox();
             {
                 //Location = new Point(label1.Location.X, label1.Bounds.Bottom + Padding.Top),
@@ -30,23 +60,32 @@ namespace Window_Form_Calculator_Application
                 DisplayField.Size = new Size(306, 49);
                 DisplayField.Font = DisplayFont;
                 DisplayField.BorderStyle = BorderStyle.None;
-                DisplayField.RightToLeft = RightToLeft.Yes;
+                DisplayField.TextAlign = HorizontalAlignment.Right;
+            };
+            DisplayAnswer = new TextBox();
+            {
+                //Location = new Point(label1.Location.X, label1.Bounds.Bottom + Padding.Top),
+                DisplayAnswer.Location = new Point(3, 12);
+                //DisplayAnswer.Size = new Size(306, 49);
+                //DisplayAnswer.Font = DisplayFont;
+                DisplayAnswer.BorderStyle = BorderStyle.None;
+                DisplayAnswer.TextAlign = HorizontalAlignment.Right;
             };
             this.Controls.Add(DisplayField);
 
             Panel Numbers = new Panel()
             {
-                Size = new Size(230,186),
+                Size = new Size(230, 186),
                 //BackColor = Color.Green,
-                Location = new Point(3,174),
+                Location = new Point(3, 174),
                 TabIndex = 1,
                 BorderStyle = BorderStyle.None,
             };
             Panel DeleteSet = new Panel()
             {
-                Size = new Size(230,92),
+                Size = new Size(230, 92),
                 //BackColor= Color.Cyan,
-                Location = new Point(3,82)
+                Location = new Point(3, 82)
             };
             Panel Operators = new Panel()
             {
@@ -54,36 +93,9 @@ namespace Window_Form_Calculator_Application
                 //BackColor = Color.Green,
                 Location = new Point(231, 82),
                 TabIndex = 0,
-                
+
             };
 
-
-            Button button0 = new Button();
-            Button button1 = new Button();
-            Button button2 = new Button();
-            Button button3 = new Button();
-            Button button4 = new Button();
-            Button button5 = new Button();
-            Button button6 = new Button();
-            Button button7 = new Button();
-            Button button8 = new Button();
-            Button button9 = new Button();
-            Button buttonDot = new Button();
-            Button buttonSign = new Button();
-
-            Button buttonC = new Button();
-            Button buttonCE = new Button();
-            Button buttonPercentage = new Button();
-            Button buttonInverse = new Button();
-            Button buttonRoot = new Button();
-            Button buttonSquare = new Button();
-
-            Button buttonEquals = new Button();
-            Button buttonPlus = new Button();
-            Button buttonMinus = new Button();
-            Button buttonMultiply = new Button();
-            Button buttonDivide = new Button();
-            Button buttonX = new Button();
 
             void AddButtonsToPanels()
             {
@@ -116,14 +128,14 @@ namespace Window_Form_Calculator_Application
             }
             AddButtonsToPanels();
 
-            SetCommonProperties(4,Numbers);
-            SetCommonProperties(2,DeleteSet);
-            SetCommonProperties(0,Operators);
+            SetCommonProperties(4, Numbers);
+            SetCommonProperties(2, DeleteSet);
+            SetCommonProperties(0, Operators);
 
             void SetCommonProperties(int j, Panel panel)
             {
                 int check = j;
-                if(j == 0)
+                if (j == 0)
                 {
                     check = 10;
                 }
@@ -137,7 +149,7 @@ namespace Window_Form_Calculator_Application
                     button.FlatAppearance.BorderSize = 0;
                     button.FlatAppearance.MouseDownBackColor = Color.Silver;
                     button.FlatAppearance.MouseOverBackColor = Color.LightGray;
-                    if(check != 4)
+                    if (check != 4)
                     {
                         button.BackColor = Color.WhiteSmoke;
                         button.ForeColor = Color.SteelBlue;
@@ -165,7 +177,7 @@ namespace Window_Form_Calculator_Application
                 button7.Text = "7";
                 button8.Text = "8";
                 button9.Text = "9";
-                buttonDot.Text = "∙";
+                buttonDot.Text = ".";
                 buttonSign.Text = "+/-";
                 buttonC.Text = "C";
                 buttonCE.Text = "CE";
@@ -183,7 +195,7 @@ namespace Window_Form_Calculator_Application
 
             Panel KeyPad = new Panel()
             {
-                Size = new Size(310,400),
+                Size = new Size(310, 400),
                 //BackColor = Color.Green,
             };
             KeyPad.Controls.Add(Operators);
@@ -194,18 +206,25 @@ namespace Window_Form_Calculator_Application
             foreach (Panel button in KeyPad.Controls)
             {
                 button.Font = ButtonFont;
-                
+
             }
 
+
+
+            List<Button> AddToDisplayButtons = new List<Button> 
+            { button0, button1, button2, button3,
+                button4, button5, button6, button7,
+                button8, button9, buttonPlus, buttonMinus,
+                buttonMultiply, buttonDivide };
+            
             AddEventHandlers();
             void AddEventHandlers()
             {
-                foreach (Button button in Numbers.Controls)
+                foreach (Button button in AddToDisplayButtons)
                 {
                     button.Click += new EventHandler(NumberHandler);
                 }
             }
-
         }
 
         private void button1_Click(Object sender, EventArgs e)
@@ -215,7 +234,8 @@ namespace Window_Form_Calculator_Application
         private void NumberHandler(Object sender, EventArgs e)
         {
             Button bttn = sender as Button;
-            DisplayField.Text += bttn.Text;
+            Equation += bttn.Text;
+            DisplayField.Text = Equation;
         }
         static void Main()
         {

@@ -1,4 +1,4 @@
-﻿using CalculatorLibrary;
+﻿using CalcLibrary;
 using System.Resources;
 
 enum AdvancedArithmeticOperation
@@ -28,8 +28,8 @@ class ConsoleCalculator
 
 class ConsoleCalculatorUI
 {
-    decimal FirstNumber;
-    decimal SecondNumber;
+    double FirstNumber;
+    double SecondNumber;
     ResourceManager rm = new ResourceManager("ConsoleCalculatorApp.StringResourcesEnglish", typeof(ConsoleCalculator).Assembly);
 
     private void GetOperands()
@@ -39,12 +39,12 @@ class ConsoleCalculatorUI
         Console.Write(rm.GetString("InputSecondNumberMessage"));
         SecondNumber = GetInputNumber();
     }
-    private decimal GetInputNumber()
+    private double GetInputNumber()
     {
-        decimal Number;
+        double Number;
         try
         {
-            Number = Convert.ToDecimal(Console.ReadLine());
+            Number = Convert.ToDouble(Console.ReadLine());
             return Number;
         }
         catch (FormatException e)
@@ -96,15 +96,15 @@ class ConsoleCalculatorUI
     public void PerformArithmeticOperation(char operatr)
     {
         GetOperands();
-        decimal? Result = Operation.ArithmeticOperation(FirstNumber, SecondNumber, operatr);
-        if (Result.HasValue)
+        try
         {
+            double Result = Operation.ArithmeticOperation(FirstNumber, SecondNumber, operatr);
             Console.Write(rm.GetString("AnswerMessage"));
             Console.WriteLine(Result);
         }
-        else
+        catch (Exception e)
         {
-            Console.WriteLine(rm.GetString("DivideByZeroError"));
+            Console.WriteLine(e.Message);
         }
     }
     public void PerformAdvancedArithmeticOp(int choice)
@@ -126,7 +126,7 @@ class ConsoleCalculatorUI
             }
             string? OperationToBePerformed = Enum.GetName(typeof(AdvancedArithmeticOperation), choice);
             Console.Write(rm.GetString("AnswerMessage"));
-            Console.WriteLine(Operation.AdvancedOperations(Convert.ToDouble(FirstNumber), OperationToBePerformed));
+            Console.WriteLine(Operation.AdvancedOperations(FirstNumber, OperationToBePerformed));
         }
     }
     private int TakeTrigoChoice()
@@ -153,16 +153,16 @@ class ConsoleCalculatorUI
     public void SolveEquation()
     {
         Console.Write(rm.GetString("EnterEquationMessage"));
-        string? equation = Console.ReadLine();
-        decimal? result = Operation.SolveEquation(equation);
-        if (result.HasValue)
+        string equation = Console.ReadLine();
+        try
         {
+            double result = Operation.SolveEquation(equation);
             Console.Write(rm.GetString("AnswerMessage"));
             Console.WriteLine(result);
         }
-        else
+        catch(Exception e)
         {
-            Console.WriteLine(rm.GetString("ExpressionErrorMessage"));
+            Console.WriteLine(e.Message);
         }
     }
 }

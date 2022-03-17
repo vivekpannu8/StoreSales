@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "WinForms Calculator/1.0.0": {
+        "dependencies": {
+          "CalcLibrary": "1.0.0"
+        },
+        "runtime": {
+          "WinForms Calculator.dll": {}
+        }
+      },
+      "CalcLibrary/1.0.0": {
+        "runtime": {
+          "CalcLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WinForms Calculator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CalcLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -8,15 +8,15 @@
     ".NETCoreApp,Version=v6.0": {
       "ConsoleCalculatorApp/1.0.0": {
         "dependencies": {
-          "CalculatorLibrary": "1.0.0"
+          "CalcLibrary": "1.0.0"
         },
         "runtime": {
           "ConsoleCalculatorApp.dll": {}
         }
       },
-      "CalculatorLibrary/1.0.0": {
+      "CalcLibrary/1.0.0": {
         "runtime": {
-          "CalculatorLibrary.dll": {}
+          "CalcLibrary.dll": {}
         }
       }
     }
@@ -27,7 +27,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CalculatorLibrary/1.0.0": {
+    "CalcLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
