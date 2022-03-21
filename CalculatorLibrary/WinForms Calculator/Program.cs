@@ -7,47 +7,21 @@ namespace WinForms_Calculator
         private TextBox DisplayField;
         private TextBox DisplayEquation;
         
-        private Button button0 = new Button();
-        private Button button1 = new Button();
-        private Button button2 = new Button();
-        private Button button3 = new Button();
-        private Button button4 = new Button();
-        private Button button5 = new Button();
-        private Button button6 = new Button();
-        private Button button7 = new Button();
-        private Button button8 = new Button();
-        private Button button9 = new Button();
-        private Button buttonDot = new Button();
-        private Button buttonSign = new Button();
-
-        private Button buttonC = new Button();
-        private Button buttonCE = new Button();
-        private Button buttonPercentage = new Button();
-        private Button buttonInverse = new Button();
-        private Button buttonRoot = new Button();
-        private Button buttonSquare = new Button();
-
-        private Button buttonEquals = new Button();
-        private Button buttonPlus = new Button();
-        private Button buttonMinus = new Button();
-        private Button buttonMultiply = new Button();
-        private Button buttonDivide = new Button();
-        private Button buttonX = new Button();
-
-        //private Button[] Button0 = new Button[20];
         private List<Button> KeyPadButtons = new List<Button>();
+        private List<Button> MemoryButtons = new List<Button>();
         private string? Equation;
+        private string CurrentEntry;
         private bool OperationPerformed;
         private CalculatorOperations Operation = new CalculatorOperations();
 
         public CalculatorForm()
         {
-            // Set the form's caption, which will appear in the title bar.
+            this.AutoSize = true;
+            //this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.Text = "Calculator";
             Font DisplayFont = new Font("Arial", 25);
             Font AnswerFont = new Font("Arial", 15);
-            Font ButtonFont = new Font("Microsoft Sans Serif", 13);
-            this.MinimumSize = new Size(325, 414);
+            this.MinimumSize = new Size(325, 460);
             this.BackColor = Color.White;
 
             DisplayField = new TextBox();
@@ -72,140 +46,90 @@ namespace WinForms_Calculator
             };
             this.Controls.Add(DisplayField);
             this.Controls.Add(DisplayEquation);
-
-            Panel Numbers = new Panel()
-            {
-                Size = new Size(230, 186),
-                //BackColor = Color.Green,
-                Location = new Point(3, 174),
-                //TabIndex = 1,
-                BorderStyle = BorderStyle.None,
-            };
-            Panel DeleteSet = new Panel()
-            {
-                Size = new Size(230, 92),
-                //BackColor= Color.Cyan,
-                Location = new Point(3, 82)
-            };
-            Panel Operators = new Panel()
-            {
-                Size = new Size(75, 280),
-                //BackColor = Color.Green,
-                Location = new Point(231, 82),
-                //TabIndex = 0,
-
-            };
-
-
-            void AddButtonsToPanels()
-            {
-                Numbers.Controls.AddRange(new Control[] 
-                { button7, button4, button1, buttonSign, 
-                    button8, button5, button2, button0, 
-                    button9, button6, button3, buttonDot});
-
-                DeleteSet.Controls.AddRange(new Control[] { buttonC, buttonSquare, buttonCE, buttonRoot, buttonX, buttonInverse });
-
-                Operators.Controls.AddRange((Control[])new Control[] 
-                {buttonPercentage, buttonDivide, buttonMultiply, 
-                    buttonMinus, buttonPlus, buttonEquals});
-            }
-            AddButtonsToPanels();
-
-            SetCommonProperties(4, Numbers);
-            SetCommonProperties(2, DeleteSet);
-            SetCommonProperties(0, Operators);
-
-            void SetCommonProperties(int j, Panel panel)
-            {
-                int check = j;
-                if (j == 0)
-                {
-                    check = 10;
-                }
-                j = 0;
-                int i = 0;
-                foreach (Button button in panel.Controls)
-                {
-                    button.Size = new Size(75, 45);
-                    button.Location = new Point(75 * j + 1 * j, 45 * i + 1 * i);
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.FlatAppearance.BorderSize = 0;
-                    button.FlatAppearance.MouseDownBackColor = Color.Silver;
-                    button.FlatAppearance.MouseOverBackColor = Color.LightGray;
-                    if (check != 4)
-                    {
-                        button.BackColor = Color.WhiteSmoke;
-                        button.ForeColor = Color.SteelBlue;
-                    }
-                    i++;
-                    if (i == check)
-                    {
-                        i = 0;
-                        j++;
-                    }
-                }
-            }
-
+            KeyPadButtons = CreateButtons(28,4,new Size(75,45),11);
+            MemoryButtons = CreateButtons(5,5,new Size(60,30),8);
+            //CreateMemoryButtons();
 
             SetButtonsText();
             void SetButtonsText()
             {
-                button0.Text = "0";
-                button1.Text = "1";
-                button2.Text = "2";
-                button3.Text = "3";
-                button4.Text = "4";
-                button5.Text = "5";
-                button6.Text = "6";
-                button7.Text = "7";
-                button8.Text = "8";
-                button9.Text = "9";
-                buttonDot.Text = ".";
-                buttonSign.Text = "+/-";
-                buttonC.Text = "C";
-                buttonCE.Text = "CE";
-                buttonPercentage.Text = "%";
-                buttonInverse.Text = "1/x";
-                buttonRoot.Text = "√x";
-                buttonSquare.Text = "x²";
-                buttonEquals.Text = "=";
-                buttonPlus.Text = "+";
-                buttonMinus.Text = "-";
-                buttonMultiply.Text = "×";
-                buttonDivide.Text = "÷";
-                buttonX.Text = "X";
-            }
+                KeyPadButtons[25].Text = "0";
+                KeyPadButtons[20].Text = "1";
+                KeyPadButtons[21].Text = "2";
+                KeyPadButtons[22].Text = "3";
+                KeyPadButtons[16].Text = "4";
+                KeyPadButtons[17].Text = "5";
+                KeyPadButtons[18].Text = "6";
+                KeyPadButtons[12].Text = "7";
+                KeyPadButtons[13].Text = "8";
+                KeyPadButtons[14].Text = "9";
+                KeyPadButtons[26].Text = ".";
+                KeyPadButtons[24].Text = "+/-";
+                KeyPadButtons[8].Text = "(";
+                KeyPadButtons[9].Text = ")";
+                KeyPadButtons[10].Text = "Log";
+                KeyPadButtons[6].Text = "1/x";
+                KeyPadButtons[5].Text = "√x";
+                KeyPadButtons[4].Text = "x²";
+                KeyPadButtons[27].Text = "=";
+                KeyPadButtons[23].Text = "+";
+                KeyPadButtons[19].Text = "-";
+                KeyPadButtons[15].Text = "×";
+                KeyPadButtons[11].Text = "÷";
+                KeyPadButtons[7].Text = "Exp";
+                KeyPadButtons[3].Text = "X";
+                KeyPadButtons[2].Text = "CE";
+                KeyPadButtons[1].Text = "C";
+                KeyPadButtons[0].Text = "%";
 
-            Panel KeyPad = new Panel()
+                MemoryButtons[0].Text = "MC";
+                MemoryButtons[1].Text = "MR";
+                MemoryButtons[2].Text = "M+";
+                MemoryButtons[3].Text = "M-";
+                MemoryButtons[4].Text = "MS";
+            }
+            //KeyPadButtons[27].Name = "buttonEquals";
+            KeyPadButtons[26].BackColor = SystemColors.InactiveCaption;
+            KeyPadButtons[24].BackColor = SystemColors.InactiveCaption;
+            Panel MemoryButton = new Panel()
             {
-                Size = new Size(303, 275),
-                BackColor = Color.Green,
+                //BackColor = Color.Green,
+                Size = new Size(304, 30),
                 Location = new Point(DisplayEquation.Bounds.X, DisplayEquation.Bounds.Bottom + 3),
             };
-                CreateButtons();
-            //KeyPad.Controls.Add(Operators);
-            //KeyPad.Controls.Add(Numbers);
-            //KeyPad.Controls.Add(DeleteSet);
-            this.Controls.Add(KeyPad);
+            Panel KeyPad = new Panel()
+            {
+                Size = new Size(304, 321),
+                Location = new Point(MemoryButton.Bounds.X, MemoryButton.Bounds.Bottom + 1),
+            };
             
+            this.Controls.Add(KeyPad);
+            this.Controls.Add(MemoryButton);
+
+            foreach(Button button in MemoryButtons)
+            {
+                button.BackColor = Color.White;
+                MemoryButton.Controls.Add(button);
+            }
+
             foreach (Button button in KeyPadButtons)
             {
                 KeyPad.Controls.Add(button);
 
             }
-            buttonPlus.Name = "+";
-            buttonMinus.Name = "-";
-            buttonMultiply.Name = "*";
-            buttonDivide.Name = "/";
+            KeyPadButtons[23].Tag = "+";
+            KeyPadButtons[19].Tag = "-";
+            KeyPadButtons[15].Tag = "*";
+            KeyPadButtons[11].Tag = "/";
             //this.Controls.Add(button0);
 
             List<Button> NumericButtons = new List<Button>
-            { button0, button1, button2, button3,
-                button4, button5, button6, button7,
-                button8, button9 };
-            List<Button> KeypadOperators = new List<Button> {buttonPlus, buttonMinus,
-                buttonMultiply, buttonDivide };
+            { KeyPadButtons[25],
+            KeyPadButtons[20], KeyPadButtons[21], KeyPadButtons[22],
+            KeyPadButtons[16], KeyPadButtons[17], KeyPadButtons[18],
+            KeyPadButtons[12], KeyPadButtons[13], KeyPadButtons[14] };
+            List<Button> KeypadOperators = new List<Button> {KeyPadButtons[23], KeyPadButtons[19],
+                KeyPadButtons[15], KeyPadButtons[11] };
             AddEventHandlers();
             void AddEventHandlers()
             {
@@ -213,31 +137,68 @@ namespace WinForms_Calculator
                 foreach (Button button in NumericButtons)
                 {
                     button.Click += new EventHandler(Numbers_Click);
-                    button.Name = Convert.ToString(i);
+                    button.BackColor = SystemColors.InactiveCaption;
+                    button.Tag = Convert.ToString(i);
                     i++;
                 }
                 foreach (Button button in KeypadOperators)
                 {
                     button.Click += new EventHandler(OperatorHandler);
                 }
-                buttonEquals.Click += new EventHandler(buttonEquals_Click);
-                buttonDot.Click += new EventHandler(buttonDot_Click);
-            }
-            //CreateButtons();
-        }
+                KeyPadButtons[27].Click += new EventHandler(buttonEquals_Click);
+                KeyPadButtons[26].Click += new EventHandler(buttonDot_Click);
+                KeyPadButtons[3].Click += new EventHandler(buttonBackspace_Click);
+                KeyPadButtons[2].Click += new EventHandler(buttonCE_Click);
+                KeyPadButtons[1].Click += new EventHandler(buttonC_Click);
+                KeyPadButtons[8].Click += new EventHandler(AddBracketsToEquation);
+                KeyPadButtons[9].Click += new EventHandler(AddBracketsToEquation);
+                KeyPadButtons[24].Click += new EventHandler(ValueSignChange);
+                DisplayField.TextChanged += new EventHandler(DisplayField_TextChanged);
 
+            }
+        }
+        private void ValueSignChange(Object sender, EventArgs e)
+        {
+            if(DisplayField.Text != "")
+            DisplayField.Text = Convert.ToString(-Convert.ToDouble(DisplayField.Text));
+        }
+        private void AddBracketsToEquation(Object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            Equation += button.Text;
+            DisplayEquation.Text = Equation;
+        }
+        private void UpdateAnswer()
+        {
+            try
+            {
+                DisplayField.Text = Convert.ToString(Operation.SolveEquation(Equation));
+            }
+            catch (Exception ex)
+            {
+                DisplayEquation.Text = ex.Message;
+            }
+        }
         private void buttonEquals_Click(Object sender, EventArgs e)
         {
-            DisplayField.Text = Convert.ToString(Operation.SolveEquation(Equation));
+            Equation += DisplayField.Text;
+            UpdateAnswer();
             //DisplayField.Text += "Result";
             DisplayEquation.Text = "";
             Equation = null;
             OperationPerformed = true;
         }
+        private void DisplayField_TextChanged(Object sender, EventArgs e)
+        {
+            CurrentEntry = DisplayField.Text;
+        }
         private void buttonDot_Click(Object sender, EventArgs e)
         {
-            Equation += ".";
-            DisplayField.Text += ".";
+            if (!DisplayField.Text.Contains('.'))
+            {
+                Equation += ".";
+                DisplayField.Text += ".";
+            }
         }
         private void Numbers_Click(Object sender, EventArgs e)
         {
@@ -247,15 +208,15 @@ namespace WinForms_Calculator
                 OperationPerformed = false;
             }
             Button bttn = sender as Button;
-            Equation += bttn.Name;
-            DisplayField.Text += bttn.Name;
+            DisplayField.Text += bttn.Tag;
             //DisplayEquation.Text = Equation;
         }
         private void OperatorHandler(Object sender, EventArgs e)
         {
             Button CurrentOperator = sender as Button;
-            DisplayField.Text = Convert.ToString(Operation.SolveEquation(Equation));
-            Equation += CurrentOperator.Name;
+            Equation += DisplayField.Text;
+            UpdateAnswer();
+            Equation += CurrentOperator.Tag;
             DisplayEquation.Text = Equation.Replace('/', '÷');
             OperationPerformed = true;
         }
@@ -263,28 +224,48 @@ namespace WinForms_Calculator
         {
 
         }
-
-        private void CreateButtons()
+        private void buttonBackspace_Click(Object sender, EventArgs e)
         {
-            //this.BackColor = Color.Green;
-            for (int i = 0; i < 6; i++)
+            if(DisplayField.Text != "")
             {
-                for (int j = 0; j < 4; j++)
+                DisplayField.Text = DisplayField.Text.Remove(DisplayField.Text.Length - 1,1);
+            }
+        }
+        private void buttonCE_Click(object sender, EventArgs e)
+        {
+            DisplayField.Text = "";
+        }
+        private void buttonC_Click(Object sender, EventArgs e)
+        {
+            DisplayField.Text = "";
+            DisplayEquation.Text = "";
+            Equation = "";
+        }
+        private List<Button> CreateButtons( int NumberOfButtons, int ButtonsInOneLine, Size size, int FontSize)
+        {
+            Font ButtonFont = new Font("Arial", FontSize);
+            List<Button> Buttons = new List<Button>();
+            for (int i = 0; i < NumberOfButtons/ButtonsInOneLine; i++)
+            {
+                for (int j = 0; j < ButtonsInOneLine; j++)
                 {
                     Button button = new Button();
-                    button.Size = new Size(75, 45);
-                    button.Location = new Point(75 * j + 1 * j, 45 * i + 1 * i);
+                    button.Size = size;
+                    button.Location = new Point(button.Size.Width * j + 1 * j, button.Size.Height * i + 1 * i);
                     button.FlatStyle = FlatStyle.Flat;
                     button.FlatAppearance.BorderSize = 0;
                     button.FlatAppearance.MouseDownBackColor = Color.Silver;
                     button.FlatAppearance.MouseOverBackColor = Color.LightGray;
-                    button.Text = "btton" + i + j;
-                    //button.Visible = true;
-                    KeyPadButtons.Add(button);
+                    //button.AutoSize = true;
+                    //button.AutoSizeMode = AutoSizeMode.GrowOnly;
+                    button.BackColor = Color.Gray;
+                    button.Font = ButtonFont;
+                    Buttons.Add(button);
                 }
             }
+            return Buttons;
         }
-        
+       
         static void Main()
         {
             Application.EnableVisualStyles();
