@@ -18,3 +18,4 @@ C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\WinForms Calcula
 C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\WinForms Calculator\bin\Debug\net6.0-windows\CalcLibrary.dll
 C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\WinForms Calculator\bin\Debug\net6.0-windows\CalcLibrary.pdb
 C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\WinForms Calculator\obj\Debug\net6.0-windows\WinForms Calculator.csproj.CopyComplete
+C:\Users\vivek.pannu\source\repos\vivek-pannu\CalculatorLibrary\WinForms Calculator\obj\Debug\net6.0-windows\WinForms_Calculator.CalculatorForm.resources

@@ -13,9 +13,9 @@ namespace CalcLibrary
         }
         public double AdvancedOperations(double Number, String Operation)
         {
-            List<string> Operations = new List<string> { "Log", "Exp", "Sin", "Cos", "Tan" };
-            var MathLibMethods = new Func<double, double>[] { Math.Log10, Math.Exp, Math.Sin, Math.Cos, Math.Tan };
-            Number = Operations.IndexOf(Operation) > 1 ? DegreeToRadian(Number) : Number;
+            List<string> Operations = new List<string> { "Log", "Exp", "Root", "Sin", "Cos", "Tan" };
+            var MathLibMethods = new Func<double, double>[] { Math.Log10, Math.Exp, Math.Sqrt, Math.Sin, Math.Cos, Math.Tan };
+            Number = Operations.IndexOf(Operation) > 2 ? DegreeToRadian(Number) : Number;
             return MathLibMethods[Operations.IndexOf(Operation)](Number);
         }
         private double DegreeToRadian(double Degree)

@@ -1,0 +1,16 @@
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\bin\Debug\net5.0\DemoProject.exe
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\bin\Debug\net5.0\DemoProject.deps.json
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\bin\Debug\net5.0\DemoProject.runtimeconfig.json
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\bin\Debug\net5.0\DemoProject.runtimeconfig.dev.json
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\bin\Debug\net5.0\DemoProject.dll
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\bin\Debug\net5.0\DemoProject.pdb
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.csproj.AssemblyReference.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.AssemblyInfoInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.AssemblyInfo.cs
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.csproj.CoreCompileInputs.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.dll
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\refint\DemoProject.dll
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.pdb
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\DemoProject.genruntimeconfig.cache
+C:\Users\vivek.pannu\source\repos\vivek-pannu\DemoProject\DemoProject\obj\Debug\net5.0\ref\DemoProject.dll

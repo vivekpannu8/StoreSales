@@ -10,13 +10,13 @@ namespace WinForms_Calculator
         private List<Button> KeyPadButtons = new List<Button>();
         private List<Button> MemoryButtons = new List<Button>();
         private string? Equation;
-        private string CurrentEntry;
+        //private string CurrentEntry;
         private bool OperationPerformed;
         private CalculatorOperations Operation = new CalculatorOperations();
 
         public CalculatorForm()
         {
-            this.AutoSize = true;
+            //this.AutoSize = true;
             //this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             this.Text = "Calculator";
             Font DisplayFont = new Font("Arial", 25);
@@ -32,7 +32,7 @@ namespace WinForms_Calculator
                 DisplayField.Font = DisplayFont;
                 DisplayField.BorderStyle = BorderStyle.None;
                 DisplayField.TextAlign = HorizontalAlignment.Right;
-                //DisplayField.BackColor = Color.Red;
+                DisplayField.Dock = DockStyle.Top;
             };
             DisplayEquation = new TextBox();
             {
@@ -43,10 +43,11 @@ namespace WinForms_Calculator
                 DisplayEquation.BorderStyle = BorderStyle.None;
                 DisplayEquation.TextAlign = HorizontalAlignment.Right;
                 DisplayEquation.ForeColor = SystemColors.InactiveCaption;
+                DisplayEquation.Dock = DockStyle.Top;
             };
-            this.Controls.Add(DisplayField);
             this.Controls.Add(DisplayEquation);
-            KeyPadButtons = CreateButtons(28,4,new Size(75,45),11);
+            this.Controls.Add(DisplayField);
+            KeyPadButtons = CreateButtons(28,4,new Size(75,45),10);
             MemoryButtons = CreateButtons(5,5,new Size(60,30),8);
             //CreateMemoryButtons();
 
@@ -91,22 +92,42 @@ namespace WinForms_Calculator
             //KeyPadButtons[27].Name = "buttonEquals";
             KeyPadButtons[26].BackColor = SystemColors.InactiveCaption;
             KeyPadButtons[24].BackColor = SystemColors.InactiveCaption;
-            Panel MemoryButton = new Panel()
+            TableLayoutPanel MemoryButton = new TableLayoutPanel()
             {
-                //BackColor = Color.Green,
+                //BackColor = Color.Red,
                 Size = new Size(304, 30),
-                Location = new Point(DisplayEquation.Bounds.X, DisplayEquation.Bounds.Bottom + 3),
+                Location = new Point(DisplayEquation.Bounds.X + 2, DisplayEquation.Bounds.Bottom + 3),
+                Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top,
+                ColumnCount = 5,
+                ColumnStyles = { new ColumnStyle(SizeType.Percent, 20), new ColumnStyle(SizeType.Percent, 20),
+                    new ColumnStyle(SizeType.Percent, 20), new ColumnStyle(SizeType.Percent, 20),
+                    new ColumnStyle(SizeType.Percent, 20)},
             };
-            Panel KeyPad = new Panel()
+            TableLayoutPanel KeyPad = new TableLayoutPanel()
             {
-                Size = new Size(304, 321),
+                Size = new Size(304, 322),
                 Location = new Point(MemoryButton.Bounds.X, MemoryButton.Bounds.Bottom + 1),
+                Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top,
+                //Margin = new Padding(1,1,1,1),
+                //BackColor = Color.Green,
+                RowCount = 7,
+                ColumnCount = 4,
+                //CellBorderStyle = TableLayoutPanelCellBorderStyle.Outset,
+                ColumnStyles = { new ColumnStyle(SizeType.Percent, 25), new ColumnStyle(SizeType.Percent, 25), 
+                    new ColumnStyle(SizeType.Percent, 25), new ColumnStyle(SizeType.Percent, 25) },
+                RowStyles = { new RowStyle(SizeType.Percent, 14.29F), new RowStyle(SizeType.Percent, 14.29F),
+                    new RowStyle(SizeType.Percent, 14.29F), new RowStyle(SizeType.Percent, 14.29F), new RowStyle(SizeType.Percent, 14.29F),
+                    new RowStyle(SizeType.Percent, 14.29F), new RowStyle(SizeType.Percent, 14) },
             };
-            
             this.Controls.Add(KeyPad);
             this.Controls.Add(MemoryButton);
 
-            foreach(Button button in MemoryButtons)
+            //foreach (RowStyle style in KeyPad.RowStyles)
+            //{
+            //    style.SizeType = SizeType.Absolute;
+            //    style.Height = 7;
+            //}
+            foreach (Button button in MemoryButtons)
             {
                 button.BackColor = Color.White;
                 MemoryButton.Controls.Add(button);
@@ -139,10 +160,13 @@ namespace WinForms_Calculator
                     button.Click += new EventHandler(Numbers_Click);
                     button.BackColor = SystemColors.InactiveCaption;
                     button.Tag = Convert.ToString(i);
+                    button.Font = new Font("Arial", 12, FontStyle.Bold);
+                    KeyPadButtons[26].Font = new Font("Arial", 12, FontStyle.Bold);
                     i++;
                 }
                 foreach (Button button in KeypadOperators)
                 {
+                    button.Font = new Font("Arial", 14);
                     button.Click += new EventHandler(OperatorHandler);
                 }
                 KeyPadButtons[27].Click += new EventHandler(buttonEquals_Click);
@@ -153,8 +177,40 @@ namespace WinForms_Calculator
                 KeyPadButtons[8].Click += new EventHandler(AddBracketsToEquation);
                 KeyPadButtons[9].Click += new EventHandler(AddBracketsToEquation);
                 KeyPadButtons[24].Click += new EventHandler(ValueSignChange);
+                KeyPadButtons[10].Click += new EventHandler(AdvancedOperationCalculate);
+                KeyPadButtons[7].Click += new EventHandler(AdvancedOperationCalculate);
+                KeyPadButtons[4].Click += new EventHandler(SquareCalculate);
+                KeyPadButtons[5].Click += new EventHandler(AdvancedOperationCalculate);
+                KeyPadButtons[6].Click += new EventHandler(InverseCalculate);
                 DisplayField.TextChanged += new EventHandler(DisplayField_TextChanged);
 
+            }
+        }
+        private void InverseCalculate(Object sender, EventArgs e)
+        {
+            if(DisplayField.Text != "")
+            {
+                double num = Convert.ToDouble(DisplayField.Text);
+                DisplayEquation.Text = "1/(" + DisplayField.Text + ")";
+                DisplayField.Text = Convert.ToString(1 / num);
+            }
+        }
+        private void SquareCalculate(Object sender, EventArgs e)
+        {
+            if (DisplayField.Text != "")
+            {
+                double num = Convert.ToDouble(DisplayField.Text);
+                DisplayEquation.Text = "Sqr(" + DisplayField.Text + ")";
+                DisplayField.Text = Convert.ToString(num * num);
+            }
+        }
+        private void AdvancedOperationCalculate(Object sender, EventArgs e)
+        {
+            if (DisplayField.Text != "")
+            {
+                Button button = sender as Button;
+                DisplayEquation.Text += button.Text + "(" + DisplayField.Text + ")";
+                DisplayField.Text = Convert.ToString(Operation.AdvancedOperations(Convert.ToDouble(DisplayField.Text), button.Text));
             }
         }
         private void ValueSignChange(Object sender, EventArgs e)
@@ -190,7 +246,7 @@ namespace WinForms_Calculator
         }
         private void DisplayField_TextChanged(Object sender, EventArgs e)
         {
-            CurrentEntry = DisplayField.Text;
+            //CurrentEntry = DisplayField.Text;
         }
         private void buttonDot_Click(Object sender, EventArgs e)
         {
@@ -251,13 +307,17 @@ namespace WinForms_Calculator
                 {
                     Button button = new Button();
                     button.Size = size;
-                    button.Location = new Point(button.Size.Width * j + 1 * j, button.Size.Height * i + 1 * i);
+                    //button.Location = new Point(button.Size.Width * j + 1 * j, button.Size.Height * i + 1 * i);
                     button.FlatStyle = FlatStyle.Flat;
                     button.FlatAppearance.BorderSize = 0;
                     button.FlatAppearance.MouseDownBackColor = Color.Silver;
                     button.FlatAppearance.MouseOverBackColor = Color.LightGray;
+                    button.Dock = DockStyle.Fill;
+                    button.Margin = new Padding(0);
+                    //button.MinimumSize = new Size(75, 45);
+                    //button.Anchor = AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom;
                     //button.AutoSize = true;
-                    //button.AutoSizeMode = AutoSizeMode.GrowOnly;
+                    //button.AutoSizeMode = AutoSizeMode.GrowAndShrink;
                     button.BackColor = Color.Gray;
                     button.Font = ButtonFont;
                     Buttons.Add(button);
