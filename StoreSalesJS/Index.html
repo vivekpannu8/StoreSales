@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Sales</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="/Script.js" defer></script>
+</head>
+
+<body>
+    <div class="outerContainer">
+        <div class="headingDiv">
+            <h1 class="headingLabel">ORDER</h1>
+        </div>
+        <!-- Time Date and Location Div -->
+        <form action="" id="salesDataForm">
+            <div class="saleDetailsDiv">
+                <div class="dateAndTime">
+                    <div class="dateDiv">
+                        <label for="">Date</label> <br>
+                        <input type="date" name="salesDate" id="">
+                    </div>
+                    <div class="timeDiv">
+                        <label for="">Time</label> <br>
+                        <input type="time" name="salesTime" id="">
+                    </div>
+                </div>
+                <div class="location">
+                    <label for="">Select Location</label> <br>
+                    <select name="storeLocation" id="">
+                        <option value="Noida">Noida</option>
+                        <option value="Greater Noida">Greater Noida</option>
+                        <option value="Delhi">Delhi</option>
+                    </select>
+
+                </div>
+            </div>
+            <!-- Cart Items Div -->
+            <div class="saleDataDiv">
+                <div class="salesData">
+
+                    <div class="salesDataItems">
+
+                        <label for="" class="salesItemsFilterLabel">Filter</label>
+                        <!-- <div class="saleDataItem">
+
+                            <input type="checkbox" class="selectedDataItems" value="Maggie">
+                            <label>Maggie</label>
+                        </div>
+                        <div class="saleDataItem">
+
+                            <input type="checkbox" class="selectedDataItems" value="Chocolate">
+                            <label>Chocolate</label>
+                        </div>
+                        <div class="saleDataItem">
+
+                            <input type="checkbox" class="selectedDataItems" value="IceCream">
+                            <label>IceCream</label>
+                        </div>
+                        <div class="saleDataItem">
+
+                            <input type="checkbox" class="selectedDataItems" value="Blanket">
+                            <label>Blanket</label>
+                        </div> -->
+
+                    </div>
+                    <div class="cartItems">
+                        <div class="dataItemTextboxes">
+                            <!-- <div>
+                                <label for="">Maggie 1 unit price : 12.00</label>
+                                <div class="customizedTextbox">
+
+                                    <button class="incDecValueButton buttonMinus">-</button>
+                                    <input type="text" name="Maggie" id="" value="234">
+                                    <button class="incDecValueButton buttonPlus">+</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="">Chocolate 1 unit price : 20.00</label>
+                                <div class="customizedTextbox">
+                                    <button class="incDecValueButton buttonMinus">-</button>
+                                    <input type="text" name="Chocolate" id="">
+
+                                    <button class="incDecValueButton buttonPlus">+</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="">IceCream</label>
+                                <div class="customizedTextbox">
+
+                                    <button class="incDecValueButton buttonMinus">-</button>
+                                    <input type="text" name="IceCream" id="">
+                                    <button class="incDecValueButton buttonPlus">+</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="">Blanket</label>
+                                <div class="customizedTextbox">
+
+                                    <button class="incDecValueButton buttonMinus">-</button>
+                                    <input type="text" name="Blanket" id="">
+                                    <button class="incDecValueButton buttonPlus">+</button>
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- Item Total Price div -->
+                        <div class="totalPriceDiv">
+                            <div class="totalItemsInCart">
+
+                                <label for="totalCartItems">Items : </label>
+                                <label id="totalCartItems">0,</label>
+                                <label for="totalCartItemUnits">Number of Units : </label>
+                                <label id="totalCartItemUnits">0</label>
+                            </div>
+                            <div class="totalPrice">
+                                <label for="totalPriceLabel">Total Price : </label>
+                                <label id="totalPriceLabel">0.00</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="" id="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
